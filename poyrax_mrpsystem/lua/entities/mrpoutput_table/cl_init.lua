@@ -2,6 +2,7 @@ include( "shared.lua" )
 
 local siyah_renk = Color(28,28,28,242)
 local beyaz_renk = Color(255,255,255)
+
 surface.CreateFont( "mrpoutput_table_large", {
 	font = "Tahoma", 
 	extended = true,
@@ -46,8 +47,8 @@ function ENT:Draw()
 	cam.Start3D2D( self:GetPos() + self:GetUp() * 55, Angle( 0, AngEyes.y - 90, 90 ), 0.05 )
 
 			draw.RoundedBox( 48, -800, 20, 1550, 280, siyah_renk )
-			draw.SimpleTextOutlined( "Çıkarma Noktası", "mrpoutput_table_large", -350, 85, beyaz_renk, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER, 2, siyah_renk )
-			draw.SimpleTextOutlined( "Buradan çıkarma noktalarını bakıp oraya gidebilirsiniz!", "mrpoutput_table_small", -750, 220, beyaz_renk, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER, 2, siyah_renk )
+			draw.SimpleTextOutlined( "Extraction Point", "mrpoutput_table_large", -350, 85, beyaz_renk, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER, 2, siyah_renk )
+			draw.SimpleTextOutlined( "From here you can check out the extraction points and get there!", "mrpoutput_table_small", -750, 220, beyaz_renk, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER, 2, siyah_renk )
 
 	cam.End3D2D()
 end
@@ -122,9 +123,7 @@ for i, ent in ipairs(ents.FindByClass("mrpoutpost_entity")) do
 	net.SendToServer()
 end
 
-
 end
-
 end)
 
 local function OpenOutpostSelectionMenu()

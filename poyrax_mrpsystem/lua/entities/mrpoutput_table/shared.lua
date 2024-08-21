@@ -4,5 +4,5 @@ ENT.Base = "base_gmodentity"
 
 ENT.PrintName		= "OutPost Masası"
 ENT.Category    = "OutPost"
-ENT.Author			= "Poyrax"
+ENT.Author			= "BinBon - Poyrax"
 ENT.Spawnable       = true

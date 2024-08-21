@@ -1,35 +1,36 @@
 print("binbon buradaydı.")
 bboutpost = bboutpost or {}
-----------------------------------------------------------------------------------
---          ALTTAKI YERDEN EKLENTININ AYARLARIYLA OYNAYABILIRSINIZZZ .)       ----
-----------------------------------------------------------------------------------
+------------------------------------
+--        CONFIG FILES          ----
+------------------------------------
 bboutpost.muhendismeslekleri = {
-    ["Mesleğin f4 ismi"] = true,
-    ["Mesleğin f4 ismi"] = true,
+    ["Job Name"] = true,
+    ["Job Name"] = true,
 }
 
 bboutpost.outpost_health = 100
-
 bboutpost.outpost_money = 25000
 
+
+
 bboutpost.outpost_faction = {
-    ["Almanya"] = {
-        ["Mayor"] = true,
-        ["Mesleğin f4 ismi"] = true,
-        ["Mesleğin f4 ismi"] = true,
+    ["Faction 1"] = {
+        ["Job Name"] = true,
+        ["Job Name"] = true,
+        ["Job Name"] = true,
     },
 
 
 
-    ["Polonya"] = {
-        ["Mesleğin f4 ismi"] = true,
-        ["Mesleğin f4 ismi"] = true,
-        ["Mesleğin f4 ismi"] = true,
+    ["Faction 2"] = {
+        ["Job Name"] = true,
+        ["Job Name"] = true,
+        ["Job Name"] = true,
     },
 }
 
-bboutpost.yazi = "Merhaba mühendis bu senin asker çıkartma malzemen.\nÇıkartmak için aşağıya bu çıkış noktasını bir isim yaz"
-bboutpost.outpost_table_yazi = "Buradan mühendislerin kurduğu makinelere gidebilirsin"
+bboutpost.yazi = "Hello engineer, this is your soldier decal material.\nWrite a name for this exit point below to extract it."
+bboutpost.outpost_table_yazi = "From here you can go to the machines built by engineers"
 bboutpost.sunucuismi = "BinBon Roleplay"
 
 bboutpost.almanya_limit = 5
@@ -44,15 +45,15 @@ function bboutpost.malzeme_kontrol(ply)
     end
     return true 
 end
-----------------------------------------------------------------------------------
---          USTTEKI YERDEN EKLENTININ AYARLARIYLA OYNAYABILIRSINIZZZ .)       ----
-----------------------------------------------------------------------------------
+------------------------------------------
+--        CONFIG FILES FINISH         ----
+------------------------------------------
 
 function hangibolge(ply)
-    if bboutpost.outpost_faction["Almanya"][team.GetName(ply:Team())]  then 
+    if bboutpost.outpost_faction["Faction 1"][team.GetName(ply:Team())]  then 
         return "Alman"
     end 
-    if bboutpost.outpost_faction["Polonya"][team.GetName(ply:Team())]  then 
+    if bboutpost.outpost_faction["Faction 2"][team.GetName(ply:Team())]  then 
         return "Polon"
     end 
     return ""

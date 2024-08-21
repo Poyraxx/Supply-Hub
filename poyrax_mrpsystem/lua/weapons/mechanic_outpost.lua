@@ -1,6 +1,7 @@
+-- from model and viewmodel; cityworker swep
 SWEP.Base = "weapon_base"
 SWEP.PrintName = "Mühendis Outpost" 
-SWEP.Author = "BinBon"
+SWEP.Author = "BinBon - Poyrax"
 SWEP.Category = "OutPost" 
 SWEP.Spawnable = true 
 SWEP.Primary.ClipSize		= -1
@@ -17,9 +18,10 @@ SWEP.Slot = 2
 SWEP.SlotPos = 1
 SWEP.DrawCrosshair = true 
 SWEP.DrawAmmo = false
-
+SWEP.HoldType = "melee" 
 SWEP.ViewModel			    = "models/props_c17/tools_pliers01a.mdl"
 SWEP.WorldModel			    = "models/props_c17/tools_pliers01a.mdl"
+
 if CLIENT then 
     surface.CreateFont( "mrpoutput_weapon_font", {
         font = "Tahoma", 
@@ -30,9 +32,8 @@ if CLIENT then
         shadow = true,
         additive = true,
     } )
-
 end
-SWEP.HoldType = "melee" 
+
 bboutpost = bboutpost or {}
 function SWEP:GetViewModelPosition( pos, ang )
     pos = pos + ang:Right() * 9 + ang:Forward() * 18 + ang:Up() * -9
@@ -110,21 +111,22 @@ if yazi == nil or yazi == "" or string.len(yazi) < 5 then
     notification.AddLegacy("Yazdığın isim çok kısa!", NOTIFY_ERROR, 10) 
     return 
 end 	
---if bboutpost.malzeme_kontrol(LocalPlayer()) == false then 
---surface.PlaySound("vo/eli_lab/al_buildastack.wav")
---notification.AddLegacy("Malzemelerin bunu oluşturmaya yetmiyor!", NOTIFY_ERROR, 10) 
-  --  return 
---end 
+
+if bboutpost.malzeme_kontrol(LocalPlayer()) == false then 
+surface.PlaySound("vo/eli_lab/al_buildastack.wav")
+notification.AddLegacy("Malzemelerin bunu oluşturmaya yetmiyor!", NOTIFY_ERROR, 10) 
+    return 
+end
+
 net.Start("outpost_engineer")
 net.WriteString(yazi)
 net.SendToServer()
 surface.PlaySound("ambient/levels/streetwar/building_rubble5.wav")
-
 end
+
 function DermaButton:Paint( w, h )
     draw.RoundedBox( 8, 0, 0, w, h, Color( 70, 70, 70 ) )
 end
-
 
 end
 
@@ -133,9 +135,7 @@ end
 end 
 
 function SWEP:SecondaryAttack()
-
 end
 
 function SWEP:Reload()
-
 end

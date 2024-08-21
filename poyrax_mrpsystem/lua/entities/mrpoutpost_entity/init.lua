@@ -35,13 +35,13 @@ local beklemeseyi = CurTime() + 5
 function ENT:Think()
 if beklemeseyi > CurTime() then return end 
 beklemeseyi = CurTime() + 3
-self:SetNWString("outpost_guvenlik", "Güvenli")
+self:SetNWString("outpost_guvenlik", "Safe")
 local plys = player.GetAll()
 for i = 1, #plys do 
         local ply = plys[i]
         if self:GetPos():DistToSqr(ply:GetPos()) < 125000 then 
-            if self:GetNWString("outpost_faction", "Alman") != hangibolge(ply) then 
-                self:SetNWString("outpost_guvenlik", "Güvenli Değil")
+            if self:GetNWString("outpost_faction", "Faction 1") != hangibolge(ply) then 
+                self:SetNWString("outpost_guvenlik", "Dangerous")
             break 
             end
         end 
